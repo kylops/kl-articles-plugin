@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class WordPress_Plugin_Template_Taxonomy {
+class KL_Articles_Plugin_Taxonomy {
 
 	/**
 	 * The name for the taxonomy.

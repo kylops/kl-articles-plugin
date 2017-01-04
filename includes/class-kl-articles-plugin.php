@@ -2,10 +2,10 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class WordPress_Plugin_Template {
+class KL_Articles_Plugin {
 
 	/**
-	 * The single instance of WordPress_Plugin_Template.
+	 * The single instance of KL_Articles_Plugin.
 	 * @var 	object
 	 * @access  private
 	 * @since 	1.0.0
@@ -84,7 +84,7 @@ class WordPress_Plugin_Template {
 	 */
 	public function __construct ( $file = '', $version = '1.0.0' ) {
 		$this->_version = $version;
-		$this->_token = 'wordpress_plugin_template';
+		$this->_token = 'kl_article_plugin';
 
 		// Load plugin environment variables
 		$this->file = $file;
@@ -106,7 +106,7 @@ class WordPress_Plugin_Template {
 
 		// Load API for generic admin functions
 		if ( is_admin() ) {
-			$this->admin = new WordPress_Plugin_Template_Admin_API();
+			$this->admin = new KL_Articles_Plugin_Admin_API();
 		}
 
 		// Handle localisation
@@ -126,7 +126,7 @@ class WordPress_Plugin_Template {
 
 		if ( ! $post_type || ! $plural || ! $single ) return;
 
-		$post_type = new WordPress_Plugin_Template_Post_Type( $post_type, $plural, $single, $description, $options );
+		$post_type = new KL_Articles_Plugin_Post_Type( $post_type, $plural, $single, $description, $options );
 
 		return $post_type;
 	}
@@ -143,7 +143,7 @@ class WordPress_Plugin_Template {
 
 		if ( ! $taxonomy || ! $plural || ! $single ) return;
 
-		$taxonomy = new WordPress_Plugin_Template_Taxonomy( $taxonomy, $plural, $single, $post_types, $taxonomy_args );
+		$taxonomy = new KL_Articles_Plugin_Taxonomy( $taxonomy, $plural, $single, $post_types, $taxonomy_args );
 
 		return $taxonomy;
 	}
@@ -199,7 +199,7 @@ class WordPress_Plugin_Template {
 	 * @return  void
 	 */
 	public function load_localisation () {
-		load_plugin_textdomain( 'wordpress-plugin-template', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
+		load_plugin_textdomain( 'kl-article-plugin', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
 	} // End load_localisation ()
 
 	/**
@@ -209,7 +209,7 @@ class WordPress_Plugin_Template {
 	 * @return  void
 	 */
 	public function load_plugin_textdomain () {
-	    $domain = 'wordpress-plugin-template';
+	    $domain = 'kl-article-plugin';
 
 	    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
@@ -218,14 +218,14 @@ class WordPress_Plugin_Template {
 	} // End load_plugin_textdomain ()
 
 	/**
-	 * Main WordPress_Plugin_Template Instance
+	 * Main KL_Articles_Plugin Instance
 	 *
-	 * Ensures only one instance of WordPress_Plugin_Template is loaded or can be loaded.
+	 * Ensures only one instance of KL_Articles_Plugin is loaded or can be loaded.
 	 *
 	 * @since 1.0.0
 	 * @static
-	 * @see WordPress_Plugin_Template()
-	 * @return Main WordPress_Plugin_Template instance
+	 * @see KL_Articles_Plugin()
+	 * @return Main KL_Articles_Plugin instance
 	 */
 	public static function instance ( $file = '', $version = '1.0.0' ) {
 		if ( is_null( self::$_instance ) ) {

@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class WordPress_Plugin_Template_Post_Type {
+class KL_Articles_Plugin_Post_Type {
 
 	/**
 	 * The name for the custom post type.

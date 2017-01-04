@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class WordPress_Plugin_Template_Admin_API {
+class KL_Articles_Plugin_Admin_API {
 
 	/**
 	 * Constructor function
